@@ -108,4 +108,24 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
 .nav-item.active, .nav-item:hover { color: gold; }
 
 /* Floating WhatsApp & Scroll Top */
-.floating-wa { position: fixed; bottom: 80px; right: 20px; background: #25D366; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+.floating-wa { position: fixed; bottom: 80px; right: 20px; background: #25D366; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 25px; text-decoration: none; z-index: 1000; }
+.scroll-top { position: fixed; bottom: 80px; left: 20px; background: gold; width: 45px; height: 45px; border-radius: 50%; display: none; align-items: center; justify-content: center; color: black; border: none; cursor: pointer; z-index: 1000; }
+.scroll-top.show { display: flex; }
+
+/* Footer */
+footer { text-align: center; padding: 30px; background: #000; border-top: 1px solid #222; margin-top: 40px; }
+.footer-links { margin-bottom: 15px; }
+.footer-links a { color: #aaa; text-decoration: none; margin: 0 8px; }
+.footer-links a:hover { color: gold; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .desktop-nav { display: none; }
+    .hamburger { display: block; }
+    .slide-caption h1 { font-size: 24px; }
+    .welcome h2 { font-size: 28px; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .features-grid { grid-template-columns: 1fr; }
+}
