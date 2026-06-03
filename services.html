@@ -11,10 +11,10 @@
 
     <header class="site-header">
         <div class="header-container">
-            <div class="mobile-logo">
-    <i class="fas fa-microchip"></i>
-    <span>MUWOWO ELECTRONICS</span>
-</div>
+            <div class="logo">
+                <i class="fas fa-microchip"></i>
+                <span>MUWOWO ELECTRONICS</span>
+            </div>
             <nav class="desktop-nav">
                 <a href="index.html">Home</a>
                 <a href="products.html">Products</a>
@@ -42,16 +42,72 @@
     </header>
 
     <main>
-        <div class="page-header"><h1>Our Services</h1><p>Professional electronics services you can trust</p></div>
-        <div class="services-grid">
-            <div class="service-card"><i class="fas fa-tv"></i><h3>TV Repair</h3><p>Expert repair for all TV brands and models. Same-day service available.</p></div>
-            <div class="service-card"><i class="fas fa-mobile-alt"></i><h3>Phone Repair</h3><p>Screen replacement, battery repair, charging port fixing.</p></div>
-            <div class="service-card"><i class="fas fa-microphone-alt"></i><h3>Speaker Repair</h3><p>Home theater, Bluetooth speaker, soundbar repair services.</p></div>
-            <div class="service-card"><i class="fas fa-plug"></i><h3>Installation</h3><p>TV mounting, home theater setup, CCTV installation.</p></div>
-            <div class="service-card"><i class="fas fa-shield-alt"></i><h3>Warranty Service</h3><p>All products come with 30-day warranty. Free service within warranty period.</p></div>
-            <div class="service-card"><i class="fas fa-truck"></i><h3>Free Delivery</h3><p>Fast and reliable delivery across Lusaka. Free for orders above ZMW 1,000.</p></div>
+        <div class="page-header">
+            <h1>Our Services</h1>
+            <p>Professional electronics services you can trust</p>
+        </div>
+        
+        <div class="services-grid" id="servicesGrid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <i class="fas fa-tv"></i>
+                <h3>TV Repair</h3>
+                <p>Expert repair for all TV brands and models. Same-day service available.</p>
+                <button class="see-more-btn" onclick="openServiceModal('tv-repair')">See More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="service-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Phone Repair</h3>
+                <p>Screen replacement, battery repair, charging port fixing.</p>
+                <button class="see-more-btn" onclick="openServiceModal('phone-repair')">See More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="service-card">
+                <i class="fas fa-microphone-alt"></i>
+                <h3>Speaker Repair</h3>
+                <p>Home theater, Bluetooth speaker, soundbar repair services.</p>
+                <button class="see-more-btn" onclick="openServiceModal('speaker-repair')">See More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            
+            <!-- Service 4 -->
+            <div class="service-card">
+                <i class="fas fa-plug"></i>
+                <h3>Installation</h3>
+                <p>TV mounting, home theater setup, CCTV installation.</p>
+                <button class="see-more-btn" onclick="openServiceModal('installation')">See More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            
+            <!-- Service 5 -->
+            <div class="service-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Warranty Service</h3>
+                <p>All products come with 30-day warranty. Free service within warranty period.</p>
+                <button class="see-more-btn" onclick="openServiceModal('warranty')">See More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            
+            <!-- Service 6 -->
+            <div class="service-card">
+                <i class="fas fa-truck"></i>
+                <h3>Free Delivery</h3>
+                <p>Fast and reliable delivery across Lusaka. Free for orders above ZMW 1,000.</p>
+                <button class="see-more-btn" onclick="openServiceModal('delivery')">See More <i class="fas fa-arrow-right"></i></button>
+            </div>
         </div>
     </main>
+
+    <!-- Service Detail Modal (Popup) -->
+    <div id="serviceModal" class="service-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeServiceModal()">&times;</span>
+            <div id="modalBody">
+                <!-- Dynamic content loads here -->
+            </div>
+            <a href="https://wa.me/260761616201" class="modal-wa-btn" target="_blank">Contact Us for This Service <i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
 
     <div class="bottom-nav">
         <a href="index.html" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
@@ -61,14 +117,77 @@
         <a href="https://wa.me/260761616201" class="nav-item"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
     </div>
 
-    <a href="https://wa.me/260761616201" class="floating-wa"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/260761616201" class="floating-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
 
     <footer>
-        <div class="footer-links"><a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a></div>
-        
+        <div class="footer-links">
+            <a href="privacy.html">Privacy</a> | 
+            <a href="terms.html">Terms</a> | 
+            <a href="about.html">About</a> | 
+            <a href="contact.html">Contact</a>
+        </div>
+        <p>MUWOWO ELECTRONICS | Jesus loves you. ❤️</p>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Service data
+        const serviceDetails = {
+            'tv-repair': {
+                title: 'TV Repair Service',
+                content: '<h2>Professional TV Repair in Lusaka</h2><p>We repair all TV brands including Samsung, LG, Sony, Hisense, and more.</p><h3>What We Fix:</h3><ul><li>Screen issues (lines, flickering, no display)</li><li>Power problems (not turning on)</li><li>Sound issues (no audio, distorted sound)</li><li>HDMI port replacement</li><li>Backlight repair</li><li>Motherboard repair</li></ul><h3>Pricing:</h3><p>Diagnosis fee: ZMW 100 (waived if you proceed with repair)</p><p>Repair costs from ZMW 200 - ZMW 800 depending on issue</p><h3>Warranty:</h3><p>30-day warranty on all repairs</p>'
+            },
+            'phone-repair': {
+                title: 'Phone Repair Service',
+                content: '<h2>Expert Phone Repair in Lusaka</h2><p>We fix all smartphone brands including iPhone, Samsung, Tecno, Infinix, and more.</p><h3>What We Fix:</h3><ul><li>Screen replacement (cracked, dead pixels)</li><li>Battery replacement (draining fast, not charging)</li><li>Charging port repair</li><li>Water damage repair</li><li>Camera repair</li><li>Software issues (stuck on logo, boot loop)</li></ul><h3>Pricing:</h3><p>Screen replacement: From ZMW 200</p><p>Battery replacement: From ZMW 150</p><p>Charging port: From ZMW 100</p><h3>Turnaround:</h3><p>Most repairs completed within 24 hours</p>'
+            },
+            'speaker-repair': {
+                title: 'Speaker & Audio Repair',
+                content: '<h2>Professional Audio Equipment Repair</h2><p>We repair all types of audio equipment including Bluetooth speakers, home theaters, soundbars, and amplifiers.</p><h3>What We Fix:</h3><ul><li>No sound or distorted audio</li><li>Bluetooth connectivity issues</li><li>Charging problems</li><li>Speaker cone damage</li><li>Volume control issues</li><li>Port replacement (AUX, USB)</li></ul><h3>Pricing:</h3><p>Diagnosis: ZMW 80</p><p>Repair costs from ZMW 150 - ZMW 600</p>'
+            },
+            'installation': {
+                title: 'Installation Services',
+                content: '<h2>Professional Installation Services</h2><p>We provide expert installation for all your electronics.</p><h3>Services Include:</h3><ul><li>TV wall mounting (all sizes)</li><li>Home theater setup and calibration</li><li>CCTV camera installation</li><li>Sound system installation</li><li>Projector setup</li><li>Wire management and cable hiding</li></ul><h3>Pricing:</h3><p>TV mounting: From ZMW 200</p><p>Home theater setup: From ZMW 250</p><p>CCTV installation: From ZMW 500 (includes 2 cameras)</p>'
+            },
+            'warranty': {
+                title: 'Warranty Service',
+                content: '<h2>Warranty Coverage</h2><p>All products purchased from MUWOWO ELECTRONICS come with a 30-day warranty.</p><h3>What Our Warranty Covers:</h3><ul><li>Manufacturer defects</li><li>Hardware failures (non-physical damage)</li><li>Screen defects (dead pixels, lines)</li><li>Battery issues</li></ul><h3>What Is NOT Covered:</h3><ul><li>Physical damage (drops, cracks, water)</li><li>Unauthorized repairs</li><li>Accessories (chargers, cables)</li></ul><h3>How to Claim:</h3><p>WhatsApp us with your proof of purchase. We will assess and repair or replace within 3-5 days.</p>'
+            },
+            'delivery': {
+                title: 'Delivery Service',
+                content: '<h2>Fast Delivery Across Lusaka</h2><p>We deliver your electronics right to your doorstep.</p><h3>Delivery Options:</h3><ul><li>Same-day delivery (orders before 2pm)</li><li>Next-day delivery</li><li>Free delivery for orders above ZMW 1,000</li><li>Delivery within 5km radius: ZMW 50 flat fee</li></ul><h3>Delivery Areas:</h3><p>We cover all areas of Lusaka including:</p><ul><li>City Centre, Kabwata, Northmead, Rhodes Park, Roma, Olympia, Makeni, Ibex Hill, Woodlands, Avondale, Chelstone, Chongwe, Kafue Road, Great East Road areas, and more.</li></ul><h3>Payment:</h3><p>Pay on delivery via Airtel Money, MTN Money, or Cash.</p>'
+            }
+        };
+
+        function openServiceModal(serviceId) {
+            const modal = document.getElementById('serviceModal');
+            const modalBody = document.getElementById('modalBody');
+            const service = serviceDetails[serviceId];
+            
+            if (service) {
+                modalBody.innerHTML = `
+                    <h1 style="color: #00d4ff; margin-bottom: 20px;">${service.title}</h1>
+                    ${service.content}
+                `;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeServiceModal() {
+            const modal = document.getElementById('serviceModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('serviceModal');
+            if (event.target === modal) {
+                closeServiceModal();
+            }
+        }
+    </script>
 </body>
 </html>
