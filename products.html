@@ -5,444 +5,467 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products – MUWOWO ELECTRONICS</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ── RESET & TOKENS ─────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg:        #0b0e13;
-      --surface:   #131720;
-      --surface2:  #1a2030;
-      --border:    #252d3d;
-      --accent:    #00c8ff;
-      --accent2:   #ff6b35;
-      --text:      #e8edf5;
-      --muted:     #8592a6;
-      --radius:    12px;
-      --shadow:    0 4px 24px rgba(0,0,0,.45);
-      --transition: .25s cubic-bezier(.4,0,.2,1);
+      --white:      #ffffff;
+      --bg:         #f8f9fc;
+      --bg2:        #f1f4f9;
+      --surface:    #ffffff;
+      --border:     #e4e8f0;
+      --border2:    #d0d6e4;
+      --accent:     #0055ff;
+      --accent-lt:  #e8efff;
+      --accent2:    #ff5c2b;
+      --text:       #0f1724;
+      --text2:      #3d4a5c;
+      --muted:      #7a8899;
+      --radius:     14px;
+      --shadow-sm:  0 2px 8px rgba(15,23,36,.06);
+      --shadow:     0 6px 24px rgba(15,23,36,.09);
+      --shadow-lg:  0 16px 48px rgba(15,23,36,.12);
+      --transition: .22s cubic-bezier(.4,0,.2,1);
     }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      padding-bottom: 80px;           /* bottom nav clearance */
+      padding-bottom: 80px;
+      overflow-x: hidden;
     }
-
-    /* ── SCROLLBAR ──────────────────────────────────────── */
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 10px; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; }
 
-    /* ── HEADER ─────────────────────────────────────────── */
+    /* ── HEADER ─────────────────────────────────────── */
     .site-header {
-      position: sticky; top: 0; z-index: 200;
-      background: rgba(11,14,19,.92);
-      backdrop-filter: blur(14px);
+      position: sticky; top: 0; z-index: 300;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
     }
     .header-container {
-      max-width: 1300px; margin: 0 auto;
+      max-width: 1280px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 24px; height: 64px;
+      padding: 0 32px; height: 68px;
     }
-    .mobile-logo {
+    .logo {
       display: flex; align-items: center; gap: 10px;
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.15rem; font-weight: 800;
-      letter-spacing: .08em; color: var(--text);
+      font-size: 1.25rem; font-weight: 900;
+      letter-spacing: .06em; color: var(--text);
     }
-    .mobile-logo i { color: var(--accent); font-size: 1.3rem; }
-
-    .desktop-nav { display: flex; align-items: center; gap: 4px; }
+    .logo .logo-icon {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: var(--accent); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .desktop-nav { display: flex; align-items: center; gap: 2px; }
     .desktop-nav a {
       padding: 8px 14px; border-radius: 8px;
-      font-size: .875rem; font-weight: 500; color: var(--muted);
-      text-decoration: none; transition: color var(--transition), background var(--transition);
+      font-size: .875rem; font-weight: 500; color: var(--text2);
+      transition: color var(--transition), background var(--transition);
     }
-    .desktop-nav a:hover, .desktop-nav a.active { color: var(--text); background: var(--surface2); }
+    .desktop-nav a:hover, .desktop-nav a.active { color: var(--text); background: var(--bg2); }
     .desktop-nav .nav-wa-btn {
-      margin-left: 8px; padding: 8px 18px;
-      background: #25d366; color: #fff; border-radius: 8px;
-      font-weight: 600; transition: filter var(--transition);
+      margin-left: 10px; padding: 9px 20px;
+      background: #25d366; color: #fff; border-radius: 9px;
+      font-weight: 600; font-size: .875rem;
+      transition: filter var(--transition), transform var(--transition);
+      display: flex; align-items: center; gap: 7px;
     }
-    .desktop-nav .nav-wa-btn:hover { filter: brightness(1.15); }
-
+    .desktop-nav .nav-wa-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
     .hamburger {
-      display: none; background: none; border: none;
-      color: var(--text); font-size: 1.3rem; cursor: pointer; padding: 6px;
+      display: none; background: none; border: 1px solid var(--border);
+      color: var(--text2); font-size: 1.1rem; cursor: pointer;
+      padding: 8px 10px; border-radius: 8px;
     }
 
-    /* mobile menu */
+    /* mobile drawer */
     .mobile-menu {
-      display: none; position: fixed; inset: 0; z-index: 300;
-      background: var(--surface);
-      flex-direction: column; padding: 24px;
+      position: fixed; inset: 0; z-index: 400;
+      background: var(--white);
+      flex-direction: column;
       transform: translateX(-100%); transition: transform .3s ease;
+      display: flex; overflow-y: auto;
     }
-    .mobile-menu.open { transform: translateX(0); display: flex; }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-menu-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 24px; border-bottom: 1px solid var(--border);
+    }
     .close-menu {
-      align-self: flex-end; background: none; border: none;
-      color: var(--muted); font-size: 1.4rem; cursor: pointer; margin-bottom: 24px;
+      background: var(--bg2); border: none;
+      color: var(--text2); width: 36px; height: 36px;
+      border-radius: 8px; font-size: 1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
     }
-    .mobile-nav { display: flex; flex-direction: column; gap: 4px; margin-top: 16px; }
+    .mobile-nav { display: flex; flex-direction: column; padding: 16px; gap: 2px; }
     .mobile-nav a {
-      display: flex; align-items: center; gap: 12px;
-      padding: 13px 16px; border-radius: 10px;
-      color: var(--text); text-decoration: none; font-size: .95rem; font-weight: 500;
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 16px; border-radius: 10px;
+      color: var(--text); font-size: .95rem; font-weight: 500;
       transition: background var(--transition);
     }
     .mobile-nav a i { width: 20px; color: var(--accent); }
-    .mobile-nav a:hover { background: var(--surface2); }
+    .mobile-nav a:hover { background: var(--bg2); }
+    .mobile-nav .wa-link { background: #e8faf0; color: #1a7a40; margin-top: 8px; }
+    .mobile-nav .wa-link i { color: #25d366; }
     .menu-overlay {
-      display: none; position: fixed; inset: 0; z-index: 290;
-      background: rgba(0,0,0,.55);
+      display: none; position: fixed; inset: 0; z-index: 390;
+      background: rgba(15,23,36,.3);
     }
     .menu-overlay.open { display: block; }
 
-    /* ── PAGE HERO ──────────────────────────────────────── */
-    .page-header {
-      background: linear-gradient(135deg, #0d1322 0%, #0b1a2e 60%, #091018 100%);
+    /* ── PAGE HEADER ────────────────────────────────── */
+    .page-hero {
+      background: var(--white);
       border-bottom: 1px solid var(--border);
-      padding: 56px 24px 40px;
-      text-align: center;
-      position: relative; overflow: hidden;
+      padding: 64px 32px 52px;
     }
-    .page-header::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,200,255,.08), transparent);
-      pointer-events: none;
+    .page-hero-inner { max-width: 1280px; margin: 0 auto; }
+    .page-hero-inner .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .78rem; color: var(--muted); margin-bottom: 20px;
     }
-    .page-header h1 {
+    .breadcrumb a { color: var(--muted); transition: color var(--transition); }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb i { font-size: .6rem; }
+    .page-hero-inner h1 {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: clamp(2.4rem, 5vw, 3.8rem);
-      font-weight: 800; letter-spacing: .04em;
-      background: linear-gradient(135deg, #fff 30%, var(--accent));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-weight: 900; letter-spacing: .02em; line-height: 1;
+      color: var(--text); margin-bottom: 10px;
     }
-    .page-header p { margin-top: 8px; color: var(--muted); font-size: 1rem; }
+    .page-hero-inner p { color: var(--muted); font-size: .95rem; }
 
-    /* ── CONTROLS ───────────────────────────────────────── */
-    .products-controls {
-      max-width: 1300px; margin: 0 auto;
+    /* ── CONTROLS ───────────────────────────────────── */
+    .controls-wrap {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 68px; z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .controls-inner {
+      max-width: 1280px; margin: 0 auto;
       display: flex; flex-wrap: wrap; align-items: center;
-      gap: 14px; padding: 28px 24px 16px;
+      gap: 12px; padding: 16px 32px;
     }
     .search-box {
       flex: 1 1 260px;
       display: flex; align-items: center; gap: 10px;
-      background: var(--surface); border: 1px solid var(--border);
+      background: var(--bg); border: 1.5px solid var(--border);
       border-radius: 10px; padding: 10px 16px;
       transition: border-color var(--transition);
     }
-    .search-box:focus-within { border-color: var(--accent); }
-    .search-box i { color: var(--muted); font-size: .9rem; }
+    .search-box:focus-within { border-color: var(--accent); background: var(--white); }
+    .search-box i { color: var(--muted); font-size: .85rem; }
     .search-box input {
       flex: 1; background: none; border: none; outline: none;
-      color: var(--text); font-family: inherit; font-size: .9rem;
+      color: var(--text); font-family: inherit; font-size: .88rem;
     }
     .search-box input::placeholder { color: var(--muted); }
-
     .filter-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
     .filter-btn {
-      padding: 9px 18px; border-radius: 8px; border: 1px solid var(--border);
-      background: var(--surface); color: var(--muted);
-      font-family: inherit; font-size: .85rem; font-weight: 500;
+      padding: 9px 18px; border-radius: 9px;
+      border: 1.5px solid var(--border); background: var(--white);
+      color: var(--text2); font-family: inherit; font-size: .83rem; font-weight: 600;
       cursor: pointer; transition: all var(--transition);
     }
-    .filter-btn:hover { border-color: var(--accent); color: var(--text); }
-    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 700; }
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-    /* ── RESULTS COUNT ──────────────────────────────────── */
+    /* ── RESULTS META ───────────────────────────────── */
     .results-meta {
-      max-width: 1300px; margin: 0 auto;
-      padding: 0 24px 12px;
+      max-width: 1280px; margin: 0 auto;
+      padding: 20px 32px 4px;
       font-size: .8rem; color: var(--muted);
     }
-    .results-meta span { color: var(--accent); font-weight: 600; }
+    .results-meta span { color: var(--accent); font-weight: 700; }
 
-    /* ── PRODUCTS GRID ──────────────────────────────────── */
+    /* ── PRODUCTS GRID ──────────────────────────────── */
     .products-grid {
-      max-width: 1300px; margin: 0 auto;
+      max-width: 1280px; margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 22px; padding: 8px 24px 32px;
+      grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+      gap: 24px; padding: 16px 32px 56px;
     }
 
-    /* ── PRODUCT CARD ───────────────────────────────────── */
+    /* ── PRODUCT CARD ───────────────────────────────── */
     .product-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
       display: flex; flex-direction: column;
       transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-      cursor: default;
       animation: fadeUp .4s ease both;
     }
     .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 36px rgba(0,200,255,.12);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
       border-color: var(--accent);
     }
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
+      from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
-    /* image area */
     .card-img-wrap {
       position: relative; overflow: hidden;
-      aspect-ratio: 4/3; background: var(--surface2);
+      aspect-ratio: 4/3; background: var(--bg2);
     }
     .card-img-wrap img {
       width: 100%; height: 100%; object-fit: cover;
       transition: transform .4s ease;
     }
-    .product-card:hover .card-img-wrap img { transform: scale(1.05); }
+    .product-card:hover .card-img-wrap img { transform: scale(1.06); }
+    .badge {
+      position: absolute; top: 12px; left: 12px;
+      padding: 4px 10px; border-radius: 6px;
+      font-size: .68rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase;
+    }
+    .badge-new  { background: var(--accent); color: #fff; }
+    .badge-hot  { background: var(--accent2); color: #fff; }
+    .badge-sale { background: #e02020; color: #fff; }
 
-    /* thumbnail strip */
+    /* thumb strip */
     .thumb-strip {
-      display: flex; gap: 6px; padding: 8px 10px;
-      background: var(--surface2); overflow-x: auto;
-      scrollbar-width: none;
+      display: flex; gap: 6px; padding: 10px 12px;
+      background: var(--bg); border-bottom: 1px solid var(--border);
+      overflow-x: auto; scrollbar-width: none;
     }
     .thumb-strip::-webkit-scrollbar { display: none; }
     .thumb {
       width: 44px; height: 36px; border-radius: 6px;
       object-fit: cover; border: 2px solid transparent;
-      cursor: pointer; flex-shrink: 0;
+      cursor: pointer; flex-shrink: 0; opacity: .55;
       transition: border-color var(--transition), opacity var(--transition);
-      opacity: .65;
     }
     .thumb.active, .thumb:hover { border-color: var(--accent); opacity: 1; }
 
-    /* badge */
-    .badge {
-      position: absolute; top: 10px; left: 10px;
-      padding: 3px 9px; border-radius: 6px;
-      font-size: .7rem; font-weight: 700; letter-spacing: .05em;
-      text-transform: uppercase;
-    }
-    .badge-new    { background: var(--accent); color: #000; }
-    .badge-hot    { background: var(--accent2); color: #fff; }
-    .badge-sale   { background: #e94560; color: #fff; }
-
-    /* card body */
-    .card-body { padding: 14px 16px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
-    .card-category { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
-    .card-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 700; line-height: 1.2; }
-    .card-desc { font-size: .82rem; color: var(--muted); line-height: 1.5; flex: 1; }
-    .card-specs {
-      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px;
-    }
+    .card-body { padding: 20px 20px 14px; flex: 1; display: flex; flex-direction: column; gap: 5px; }
+    .card-category { font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+    .card-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; font-weight: 800; line-height: 1.2; color: var(--text); }
+    .card-desc { font-size: .82rem; color: var(--muted); line-height: 1.55; flex: 1; margin-top: 2px; }
+    .card-specs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
     .spec-tag {
-      padding: 3px 8px; border-radius: 5px;
-      background: var(--surface2); border: 1px solid var(--border);
-      font-size: .72rem; color: var(--muted);
+      padding: 4px 9px; border-radius: 6px;
+      background: var(--bg2); border: 1px solid var(--border);
+      font-size: .7rem; color: var(--text2); font-weight: 500;
     }
-
-    /* card footer */
     .card-footer {
-      padding: 12px 16px;
+      padding: 14px 20px;
       display: flex; align-items: center; justify-content: space-between;
       border-top: 1px solid var(--border);
     }
-    .card-price { font-family: 'Barlow Condensed', sans-serif; font-size: 1.35rem; font-weight: 700; color: var(--text); }
-    .card-price .currency { font-size: .85rem; color: var(--muted); margin-right: 2px; }
-    .card-price .old-price { font-size: .8rem; color: var(--muted); text-decoration: line-through; margin-right: 6px; }
-
+    .card-price { display: flex; flex-direction: column; gap: 2px; }
+    .card-price .old { font-size: .75rem; color: var(--muted); text-decoration: line-through; }
+    .card-price .main { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; font-weight: 900; color: var(--text); }
+    .card-price .main .cur { font-size: .85rem; font-weight: 600; color: var(--muted); margin-right: 2px; }
     .card-actions { display: flex; gap: 8px; }
     .btn-see-more {
-      padding: 8px 14px; border-radius: 8px;
-      background: var(--surface2); border: 1px solid var(--border);
-      color: var(--text); font-family: inherit; font-size: .8rem;
-      font-weight: 600; cursor: pointer;
-      transition: all var(--transition);
+      padding: 9px 14px; border-radius: 9px;
+      border: 1.5px solid var(--border2); background: var(--white);
+      color: var(--text2); font-family: inherit; font-size: .8rem; font-weight: 600;
+      cursor: pointer; transition: all var(--transition);
     }
     .btn-see-more:hover { border-color: var(--accent); color: var(--accent); }
-    .btn-whatsapp {
-      padding: 8px 12px; border-radius: 8px;
+    .btn-enquire {
+      padding: 9px 14px; border-radius: 9px;
       background: #25d366; border: none; color: #fff;
-      font-size: .85rem; cursor: pointer;
+      font-family: inherit; font-size: .8rem; font-weight: 700;
+      cursor: pointer; display: flex; align-items: center; gap: 5px;
       transition: filter var(--transition);
-      display: flex; align-items: center; gap: 6px;
     }
-    .btn-whatsapp:hover { filter: brightness(1.15); }
+    .btn-enquire:hover { filter: brightness(1.1); }
 
-    /* ── EMPTY STATE ────────────────────────────────────── */
+    /* ── EMPTY STATE ────────────────────────────────── */
     .empty-state {
-      grid-column: 1/-1; text-align: center; padding: 80px 20px;
-      color: var(--muted);
+      grid-column: 1/-1; text-align: center;
+      padding: 96px 20px; color: var(--muted);
     }
-    .empty-state i { font-size: 3rem; margin-bottom: 16px; opacity: .3; }
-    .empty-state h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem; color: var(--text); margin-bottom: 6px; }
+    .empty-state .icon { font-size: 3rem; margin-bottom: 20px; opacity: .25; }
+    .empty-state h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; color: var(--text); margin-bottom: 8px; }
 
-    /* ── MODAL ──────────────────────────────────────────── */
+    /* ── MODAL ──────────────────────────────────────── */
     .modal-overlay {
       display: none; position: fixed; inset: 0; z-index: 500;
-      background: rgba(0,0,0,.82); backdrop-filter: blur(6px);
+      background: rgba(15,23,36,.5); backdrop-filter: blur(6px);
       justify-content: center; align-items: center; padding: 20px;
     }
     .modal-overlay.open { display: flex; }
     .modal {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; width: 100%; max-width: 860px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 20px; width: 100%; max-width: 900px;
       max-height: 90vh; overflow-y: auto;
+      box-shadow: var(--shadow-lg);
       animation: modalIn .25s ease;
     }
     @keyframes modalIn {
-      from { opacity: 0; transform: scale(.95) translateY(20px); }
+      from { opacity: 0; transform: scale(.96) translateY(16px); }
       to   { opacity: 1; transform: scale(1) translateY(0); }
     }
-    .modal-close {
-      position: sticky; top: 0; z-index: 10;
-      display: flex; justify-content: flex-end;
-      padding: 14px 16px 0;
+    .modal-top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 28px; border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; background: var(--white); z-index: 10;
     }
-    .modal-close button {
-      background: var(--surface2); border: 1px solid var(--border);
-      color: var(--muted); width: 34px; height: 34px; border-radius: 8px;
-      font-size: 1rem; cursor: pointer; transition: all var(--transition);
+    .modal-top-label { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+    .modal-close-btn {
+      background: var(--bg2); border: none;
+      color: var(--text2); width: 34px; height: 34px; border-radius: 8px;
+      font-size: .9rem; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition);
     }
-    .modal-close button:hover { border-color: var(--accent); color: var(--text); }
-
+    .modal-close-btn:hover { background: var(--accent); color: #fff; }
     .modal-body {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
-      padding: 0 24px 28px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 40px; padding: 32px 28px 36px;
     }
-    .modal-gallery { display: flex; flex-direction: column; gap: 10px; }
+
+    /* gallery */
+    .modal-gallery { display: flex; flex-direction: column; gap: 12px; }
     .modal-main-img {
-      border-radius: 10px; overflow: hidden;
-      background: var(--surface2); aspect-ratio: 4/3;
+      border-radius: 12px; overflow: hidden;
+      aspect-ratio: 4/3; background: var(--bg2);
+      border: 1px solid var(--border);
     }
     .modal-main-img img { width: 100%; height: 100%; object-fit: cover; }
-    .modal-thumbs { display: flex; gap: 8px; flex-wrap: wrap; }
+    .modal-thumbs { display: flex; gap: 10px; flex-wrap: wrap; }
     .modal-thumb {
-      width: 58px; height: 48px; border-radius: 7px; overflow: hidden;
+      width: 64px; height: 52px; border-radius: 8px; overflow: hidden;
       border: 2px solid var(--border); cursor: pointer;
-      transition: border-color var(--transition); opacity: .6;
+      transition: border-color var(--transition); opacity: .55;
     }
     .modal-thumb.active, .modal-thumb:hover { border-color: var(--accent); opacity: 1; }
     .modal-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
-    .modal-info { display: flex; flex-direction: column; gap: 14px; padding-top: 4px; }
-    .modal-category { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-    .modal-name { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800; line-height: 1.15; }
-    .modal-price { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 700; }
-    .modal-price .old { font-size: 1rem; color: var(--muted); text-decoration: line-through; margin-right: 8px; }
-    .modal-desc { font-size: .88rem; color: var(--muted); line-height: 1.65; }
-    .modal-specs-title { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-    .modal-specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    /* info */
+    .modal-info { display: flex; flex-direction: column; gap: 16px; }
+    .modal-name { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 900; line-height: 1.1; color: var(--text); }
+    .modal-price-row { display: flex; align-items: baseline; gap: 10px; }
+    .modal-price { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 900; color: var(--accent); }
+    .modal-old { font-size: 1rem; color: var(--muted); text-decoration: line-through; }
+    .modal-desc { font-size: .88rem; color: var(--text2); line-height: 1.7; }
+    .modal-specs-title {
+      font-size: .7rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: -4px;
+    }
+    .modal-specs-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
     .modal-spec-item {
-      background: var(--surface2); border: 1px solid var(--border);
-      border-radius: 8px; padding: 8px 12px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 10px; padding: 10px 14px;
     }
-    .modal-spec-item .label { font-size: .7rem; color: var(--muted); margin-bottom: 2px; }
-    .modal-spec-item .value { font-size: .88rem; font-weight: 600; }
-    .modal-cta {
-      display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px;
-    }
+    .modal-spec-item .label { font-size: .68rem; color: var(--muted); font-weight: 600; margin-bottom: 3px; letter-spacing: .04em; text-transform: uppercase; }
+    .modal-spec-item .value { font-size: .88rem; font-weight: 700; color: var(--text); }
+    .modal-cta { display: flex; gap: 10px; flex-wrap: wrap; padding-top: 4px; }
     .btn-modal-wa {
-      flex: 1; padding: 13px; border-radius: 10px;
+      flex: 1; padding: 14px; border-radius: 10px;
       background: #25d366; border: none; color: #fff;
       font-family: inherit; font-size: .9rem; font-weight: 700;
       cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
-      transition: filter var(--transition);
+      transition: filter var(--transition), transform var(--transition);
     }
-    .btn-modal-wa:hover { filter: brightness(1.12); }
+    .btn-modal-wa:hover { filter: brightness(1.08); transform: translateY(-1px); }
     .btn-modal-call {
       flex: 1; padding: 13px; border-radius: 10px;
-      background: none; border: 1px solid var(--border);
-      color: var(--text); font-family: inherit; font-size: .9rem; font-weight: 600;
+      border: 1.5px solid var(--border2); background: none;
+      color: var(--text2); font-family: inherit; font-size: .9rem; font-weight: 600;
       cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
       transition: all var(--transition);
     }
     .btn-modal-call:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* ── BOTTOM NAV ─────────────────────────────────────── */
+    /* ── BOTTOM NAV ─────────────────────────────────── */
     .bottom-nav {
       display: none;
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
-      background: rgba(11,14,19,.96); backdrop-filter: blur(12px);
+      background: rgba(255,255,255,.96); backdrop-filter: blur(12px);
       border-top: 1px solid var(--border);
       justify-content: space-around;
+      box-shadow: 0 -4px 20px rgba(15,23,36,.08);
     }
     .bottom-nav .nav-item {
       flex: 1; display: flex; flex-direction: column; align-items: center;
       gap: 4px; padding: 10px 0;
-      text-decoration: none; color: var(--muted);
-      font-size: .68rem; font-weight: 500;
+      color: var(--muted); font-size: .65rem; font-weight: 600;
       transition: color var(--transition);
     }
     .bottom-nav .nav-item i { font-size: 1.15rem; }
     .bottom-nav .nav-item.active, .bottom-nav .nav-item:hover { color: var(--accent); }
 
-    /* ── FLOATING WA ────────────────────────────────────── */
     .floating-wa {
-      display: none; position: fixed; bottom: 90px; right: 20px; z-index: 190;
+      display: none; position: fixed; bottom: 76px; right: 16px; z-index: 190;
       width: 52px; height: 52px; border-radius: 50%;
-      background: #25d366; color: #fff;
-      font-size: 1.5rem;
+      background: #25d366; color: #fff; font-size: 1.45rem;
       align-items: center; justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 6px 20px rgba(37,211,102,.4);
+      box-shadow: 0 4px 20px rgba(37,211,102,.45);
       transition: transform var(--transition);
     }
     .floating-wa:hover { transform: scale(1.1); }
 
-    /* ── SCROLL TOP ─────────────────────────────────────── */
     .scroll-top {
       position: fixed; bottom: 90px; right: 20px; z-index: 190;
-      width: 42px; height: 42px; border-radius: 10px;
-      background: var(--surface2); border: 1px solid var(--border);
-      color: var(--muted); font-size: .9rem; cursor: pointer;
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--white); border: 1px solid var(--border2);
+      color: var(--text2); font-size: .85rem; cursor: pointer;
+      box-shadow: var(--shadow-sm);
       transition: all var(--transition);
       display: none; align-items: center; justify-content: center;
     }
     .scroll-top.visible { display: flex; }
     .scroll-top:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* ── FOOTER ─────────────────────────────────────────── */
     footer {
-      border-top: 1px solid var(--border);
-      text-align: center; padding: 24px;
-      color: var(--muted); font-size: .8rem;
+      background: var(--white); border-top: 1px solid var(--border);
+      text-align: center; padding: 36px 24px;
+      color: var(--muted); font-size: .82rem;
     }
-    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 8px; }
-    .footer-links a { color: var(--muted); text-decoration: none; transition: color var(--transition); }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 20px; margin-bottom: 12px; }
+    .footer-links a { color: var(--muted); transition: color var(--transition); }
     .footer-links a:hover { color: var(--accent); }
 
-    /* ── RESPONSIVE ─────────────────────────────────────── */
-    @media (max-width: 900px) {
+    /* ── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 960px) {
       .desktop-nav { display: none; }
       .hamburger { display: flex; }
       .bottom-nav { display: flex; }
       .floating-wa { display: flex; }
-      .scroll-top { bottom: 80px; right: 16px; }
-      .floating-wa { bottom: 76px; right: 16px; }
+      .scroll-top { bottom: 80px; right: 14px; }
+      .floating-wa { bottom: 72px; right: 14px; }
+      .controls-wrap { top: 0; }
     }
-    @media (max-width: 640px) {
-      .modal-body { grid-template-columns: 1fr; }
-      .products-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    @media (max-width: 680px) {
+      .modal-body { grid-template-columns: 1fr; gap: 24px; }
       .modal-specs-grid { grid-template-columns: 1fr; }
+      .controls-inner { padding: 12px 16px; }
+      .products-grid { grid-template-columns: 1fr 1fr; gap: 14px; padding: 14px 16px 48px; }
+      .page-hero { padding: 48px 16px 36px; }
+      .results-meta { padding: 14px 16px 4px; }
+    }
+    @media (max-width: 440px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .header-container { padding: 0 16px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══ HEADER ══════════════════════════════════════════ -->
+<!-- HEADER -->
 <header class="site-header">
   <div class="header-container">
-    <div class="mobile-logo">
-      <i class="fas fa-microchip"></i>
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><i class="fas fa-microchip"></i></div>
       <span>MUWOWO ELECTRONICS</span>
-    </div>
+    </a>
     <nav class="desktop-nav">
       <a href="index.html">Home</a>
       <a href="products.html" class="active">Products</a>
@@ -450,14 +473,15 @@
       <a href="about.html">About</a>
       <a href="faq.html">FAQ</a>
       <a href="contact.html">Contact</a>
-      <a href="https://wa.me/260761616201" class="nav-wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://wa.me/260761616201" class="nav-wa-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </nav>
     <button class="hamburger" id="hamburgerBtn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
   </div>
-  <!-- mobile menu -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
-    <button class="close-menu" id="closeMenuBtn" aria-label="Close menu"><i class="fas fa-times"></i></button>
-    <div class="mobile-logo"><i class="fas fa-microchip"></i><span>MUWOWO ELECTRONICS</span></div>
+    <div class="mobile-menu-header">
+      <a href="index.html" class="logo"><div class="logo-icon"><i class="fas fa-microchip"></i></div><span>MUWOWO ELECTRONICS</span></a>
+      <button class="close-menu" id="closeMenuBtn" aria-label="Close"><i class="fas fa-times"></i></button>
+    </div>
     <nav class="mobile-nav">
       <a href="index.html"><i class="fas fa-home"></i> Home</a>
       <a href="products.html"><i class="fas fa-microchip"></i> Products</a>
@@ -465,404 +489,225 @@
       <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
       <a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
       <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="https://wa.me/260761616201" class="wa-link" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </nav>
   </div>
   <div class="menu-overlay" id="menuOverlay"></div>
 </header>
 
-<!-- ══ PAGE HERO ═══════════════════════════════════════ -->
-<div class="page-header">
-  <h1>Our Products</h1>
-  <p>Browse our collection of quality electronics — TVs, audio & accessories</p>
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Products</span>
+    </div>
+    <h1>Our Products</h1>
+    <p>Browse our collection of quality TVs, audio equipment & accessories</p>
+  </div>
 </div>
 
-<!-- ══ CONTROLS ════════════════════════════════════════ -->
-<div class="products-controls">
-  <div class="search-box">
-    <i class="fas fa-search"></i>
-    <input type="text" id="searchInput" placeholder="Search products…" aria-label="Search products">
-  </div>
-  <div class="filter-buttons" role="group" aria-label="Filter by category">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="tv">TVs</button>
-    <button class="filter-btn" data-filter="audio">Audio</button>
-    <button class="filter-btn" data-filter="accessory">Accessories</button>
+<!-- CONTROLS -->
+<div class="controls-wrap">
+  <div class="controls-inner">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Search products…" aria-label="Search products">
+    </div>
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All Products</button>
+      <button class="filter-btn" data-filter="tv">TVs</button>
+      <button class="filter-btn" data-filter="audio">Audio</button>
+      <button class="filter-btn" data-filter="accessory">Accessories</button>
+    </div>
   </div>
 </div>
 <div class="results-meta" id="resultsMeta"></div>
 
-<!-- ══ GRID ════════════════════════════════════════════ -->
+<!-- PRODUCTS GRID -->
 <div class="products-grid" id="all-products"></div>
 
-<!-- ══ MODAL ═══════════════════════════════════════════ -->
-<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalName">
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
   <div class="modal" id="modalBox">
-    <div class="modal-close"><button id="modalCloseBtn" aria-label="Close"><i class="fas fa-times"></i></button></div>
+    <div class="modal-top">
+      <div class="modal-top-label" id="modalCategory"></div>
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close"><i class="fas fa-times"></i></button>
+    </div>
     <div class="modal-body">
       <div class="modal-gallery">
-        <div class="modal-main-img"><img id="modalMainImg" src="" alt="Product image"></div>
+        <div class="modal-main-img"><img id="modalMainImg" src="" alt="Product"></div>
         <div class="modal-thumbs" id="modalThumbs"></div>
       </div>
       <div class="modal-info">
-        <div class="modal-category" id="modalCategory"></div>
         <div class="modal-name" id="modalName"></div>
-        <div class="modal-price" id="modalPrice"></div>
+        <div class="modal-price-row">
+          <div class="modal-price" id="modalPrice"></div>
+          <div class="modal-old" id="modalOldPrice"></div>
+        </div>
         <p class="modal-desc" id="modalDesc"></p>
         <div class="modal-specs-title">Specifications</div>
         <div class="modal-specs-grid" id="modalSpecs"></div>
         <div class="modal-cta">
           <button class="btn-modal-wa" id="modalWaBtn"><i class="fab fa-whatsapp"></i> Enquire on WhatsApp</button>
-          <button class="btn-modal-call"><i class="fas fa-phone"></i> Call Us</button>
+          <a href="tel:+260761616201" class="btn-modal-call"><i class="fas fa-phone"></i> Call Us</a>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══ BOTTOM NAV ══════════════════════════════════════ -->
+<!-- BOTTOM NAV -->
 <div class="bottom-nav">
   <a href="index.html" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
   <a href="products.html" class="nav-item active"><i class="fas fa-microchip"></i><span>Products</span></a>
   <a href="services.html" class="nav-item"><i class="fas fa-tools"></i><span>Services</span></a>
   <a href="contact.html" class="nav-item"><i class="fas fa-envelope"></i><span>Contact</span></a>
-  <a href="https://wa.me/260761616201" class="nav-item"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+  <a href="https://wa.me/260761616201" class="nav-item" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
 </div>
-
-<a href="https://wa.me/260761616201" class="floating-wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/260761616201" class="floating-wa" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
 
-<!-- ══ FOOTER ══════════════════════════════════════════ -->
 <footer>
   <div class="footer-links">
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
   </div>
-  <div>&copy; 2025 Muwowo Electronics. All rights reserved.</div>
+  <p>MUWOWO ELECTRONICS — Quality Electronics in Lusaka, Zambia</p>
+  <p style="margin-top:6px;">&copy; 2025 Muwowo Electronics. All rights reserved.</p>
 </footer>
 
-<!-- ══ SCRIPT ══════════════════════════════════════════ -->
 <script>
-/* ── PRODUCT DATA ── */
-/* Images use Unsplash query URLs for realistic placeholders.
-   Replace src values with your own product photos. */
 const PRODUCTS = [
-  {
-    id: 1, category: "tv", badge: "hot",
-    name: "Samsung 55\" QLED Smart TV",
-    desc: "Vivid 4K QLED display with Quantum HDR 12X, built-in Alexa & Google Assistant. Perfect for large living rooms.",
-    price: "K 8,500", oldPrice: "K 9,200",
-    specs: [
-      { label: "Screen Size", value: "55 inches" },
-      { label: "Resolution", value: "4K Ultra HD" },
-      { label: "Panel Type", value: "QLED" },
-      { label: "Smart OS", value: "Tizen" },
-      { label: "HDR", value: "Quantum HDR 12X" },
-      { label: "Warranty", value: "2 Years" },
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800&q=80",
-      "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=800&q=80",
-      "https://images.unsplash.com/photo-1509281373149-e957c6296406?w=800&q=80",
-    ]
-  },
-  {
-    id: 2, category: "tv", badge: "new",
-    name: "LG 43\" UHD 4K WebOS TV",
-    desc: "AI ThinQ-powered 4K UHD TV with webOS 22, TruMotion 120 and FILMMAKER MODE for cinema-accurate colour.",
-    price: "K 5,800",
-    specs: [
-      { label: "Screen Size", value: "43 inches" },
-      { label: "Resolution", value: "4K Ultra HD" },
-      { label: "Smart OS", value: "webOS 22" },
-      { label: "Refresh Rate", value: "60Hz TruMotion 120" },
-      { label: "HDR", value: "HDR10 / HLG" },
-      { label: "Warranty", value: "2 Years" },
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1601944179066-29d54d7c4e85?w=800&q=80",
-      "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800&q=80",
-      "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800&q=80",
-    ]
-  },
-  {
-    id: 3, category: "tv", badge: null,
-    name: "Hisense 32\" HD Smart TV",
-    desc: "Budget-friendly 32\" smart TV with VIDAA OS, DTS Virtual:X sound enhancement and energy-saving ECO mode.",
-    price: "K 2,400",
-    specs: [
-      { label: "Screen Size", value: "32 inches" },
-      { label: "Resolution", value: "HD Ready 720p" },
-      { label: "Smart OS", value: "VIDAA" },
-      { label: "Sound", value: "DTS Virtual:X" },
-      { label: "HDR", value: "HDR 10" },
-      { label: "Warranty", value: "1 Year" },
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1542241428-8c60a7c5a3ea?w=800&q=80",
-      "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800&q=80",
-    ]
-  },
-  {
-    id: 4, category: "audio", badge: "new",
-    name: "Sony HT-S400 2.1 Soundbar",
-    desc: "Powerful 330W 2.1ch soundbar with dedicated wireless subwoofer. X-Balanced Speaker Unit for crystal-clear highs.",
-    price: "K 3,200", oldPrice: "K 3,800",
-    specs: [
-      { label: "Power Output", value: "330W" },
-      { label: "Channels", value: "2.1ch" },
-      { label: "Subwoofer", value: "Wireless" },
-      { label: "Connectivity", value: "Bluetooth 5.0 / HDMI ARC" },
-      { label: "Format", value: "Dolby Digital" },
-      { label: "Warranty", value: "1 Year" },
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=800&q=80",
-      "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&q=80",
-      "https://images.unsplash.com/photo-1558089687-f282ffcbc0d6?w=800&q=80",
-    ]
-  },
-  {
-    id: 5, category: "audio", badge: "hot",
-    name: "JBL Charge 5 BT Speaker",
-    desc: "IP67 waterproof & dustproof portable speaker with 20h playtime, PartyBoost for multi-speaker pairing.",
-    price: "K 1,450",
-    specs: [
-      { label: "Battery Life", value: "20 Hours" },
-      { label: "Waterproof", value: "IP67" },
-      { label: "Connectivity", value: "Bluetooth 5.1" },
-      { label: "USB Charging", value: "Yes (Power bank)" },
-      { label: "PartyBoost", value: "Yes" },
-      { label: "Warranty", value: "1 Year" },
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&q=80",
-      "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=800&q=80",
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
-    ]
-  },
-  {
-    id: 6, category: "audio", badge: null,
-    name: "Sony WH-1000XM5 Headphones",
-    desc: "Industry-leading noise cancelling headphones with 30h battery, multipoint connect, and crystal-clear call quality.",
-    price: "K 2,900",
-    specs: [
-      { label: "Battery Life", value: "30 Hours" },
-      { label: "Noise Cancelling", value: "Active (ANC)" },
-      { label: "Connectivity", value: "Bluetooth 5.2" },
-      { label: "Multipoint", value: "2 Devices" },
-      { label: "Weight", value: "250g" },
-      { label: "Warranty", value: "1 Year" },
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
-      "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=800&q=80",
-      "https://images.unsplash.com/photo-1508164451428-b68e3607fb5a?w=800&q=80",
-    ]
-  },
-  {
-    id: 7, category: "accessory", badge: "sale",
-    name: "HDMI 2.1 Cable 3m",
-    desc: "8K certified HDMI 2.1 cable supporting 48Gbps bandwidth, 8K@60Hz & 4K@120Hz. Gold-plated connectors.",
-    price: "K 150", oldPrice: "K 200",
-    specs: [
-      { label: "Version", value: "HDMI 2.1" },
-      { label: "Bandwidth", value: "48Gbps" },
-      { label: "Max Resolution", value: "8K @ 60Hz" },
-      { label: "Length", value: "3 Meters" },
-      { label: "Connectors", value: "Gold Plated" },
-      { label: "HDR", value: "HDR10+ / Dolby Vision" },
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-      "https://images.unsplash.com/photo-1588590560438-5e27fe3f6b71?w=800&q=80",
-    ]
-  },
-  {
-    id: 8, category: "accessory", badge: "new",
-    name: "Universal TV Wall Mount",
-    desc: "Heavy-duty full-motion articulating arm wall mount. Fits 32\"–75\" TVs, VESA up to 600x400mm, tilt & swivel.",
-    price: "K 480",
-    specs: [
-      { label: "TV Fit", value: "32\" – 75\"" },
-      { label: "Max VESA", value: "600 × 400mm" },
-      { label: "Max Weight", value: "50kg" },
-      { label: "Tilt", value: "±15°" },
-      { label: "Swivel", value: "180°" },
-      { label: "Warranty", value: "2 Years" },
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1588590560438-5e27fe3f6b71?w=800&q=80",
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-    ]
-  },
-  {
-    id: 9, category: "accessory", badge: null,
-    name: "4-Port USB-C Hub",
-    desc: "Compact USB-C hub with 4K HDMI, 100W PD passthrough, 2×USB-A 3.0, USB-C data. Plug and play.",
-    price: "K 320",
-    specs: [
-      { label: "Ports", value: "HDMI + 2×USB-A + USB-C" },
-      { label: "HDMI Output", value: "4K @ 30Hz" },
-      { label: "PD Passthrough", value: "100W" },
-      { label: "USB-A Speed", value: "USB 3.0 (5Gbps)" },
-      { label: "Cable Length", value: "12cm" },
-      { label: "Compatibility", value: "Mac / PC / iPad" },
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1625799955928-fc2c59b0d86e?w=800&q=80",
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-    ]
-  },
+  { id:1, category:"tv", badge:"hot", name:'Samsung 55" QLED Smart TV', desc:"Vivid 4K QLED display with Quantum HDR 12X, built-in Alexa & Google Assistant. Perfect for large living rooms.", price:"8,500", oldPrice:"9,200",
+    specs:[{label:"Screen Size",value:'55"'},{label:"Resolution",value:"4K Ultra HD"},{label:"Panel",value:"QLED"},{label:"Smart OS",value:"Tizen"},{label:"HDR",value:"Quantum HDR 12X"},{label:"Warranty",value:"2 Years"}],
+    images:["https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800&q=80","https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=800&q=80","https://images.unsplash.com/photo-1509281373149-e957c6296406?w=800&q=80"]},
+  { id:2, category:"tv", badge:"new", name:'LG 43" UHD 4K WebOS TV', desc:"AI ThinQ-powered 4K UHD with webOS 22, TruMotion 120 and FILMMAKER MODE for cinema-accurate colour.", price:"5,800",
+    specs:[{label:"Screen Size",value:'43"'},{label:"Resolution",value:"4K Ultra HD"},{label:"Smart OS",value:"webOS 22"},{label:"Refresh",value:"TruMotion 120"},{label:"HDR",value:"HDR10 / HLG"},{label:"Warranty",value:"2 Years"}],
+    images:["https://images.unsplash.com/photo-1601944179066-29d54d7c4e85?w=800&q=80","https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800&q=80","https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800&q=80"]},
+  { id:3, category:"tv", badge:null, name:'Hisense 32" HD Smart TV', desc:"Budget-friendly 32\" smart TV with VIDAA OS, DTS Virtual:X sound and energy-saving ECO mode.", price:"2,400",
+    specs:[{label:"Screen Size",value:'32"'},{label:"Resolution",value:"HD 720p"},{label:"Smart OS",value:"VIDAA"},{label:"Sound",value:"DTS Virtual:X"},{label:"HDR",value:"HDR 10"},{label:"Warranty",value:"1 Year"}],
+    images:["https://images.unsplash.com/photo-1542241428-8c60a7c5a3ea?w=800&q=80","https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800&q=80"]},
+  { id:4, category:"audio", badge:"new", name:"Sony HT-S400 2.1 Soundbar", desc:"Powerful 330W 2.1ch soundbar with dedicated wireless subwoofer. X-Balanced Speaker Unit for crystal-clear highs.", price:"3,200", oldPrice:"3,800",
+    specs:[{label:"Power",value:"330W"},{label:"Channels",value:"2.1ch"},{label:"Subwoofer",value:"Wireless"},{label:"Connectivity",value:"Bluetooth / HDMI ARC"},{label:"Format",value:"Dolby Digital"},{label:"Warranty",value:"1 Year"}],
+    images:["https://images.unsplash.com/photo-1545454675-3531b543be5d?w=800&q=80","https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&q=80","https://images.unsplash.com/photo-1558089687-f282ffcbc0d6?w=800&q=80"]},
+  { id:5, category:"audio", badge:"hot", name:"JBL Charge 5 BT Speaker", desc:"IP67 waterproof & dustproof portable speaker with 20h playtime and PartyBoost for multi-speaker pairing.", price:"1,450",
+    specs:[{label:"Battery",value:"20 Hours"},{label:"Waterproof",value:"IP67"},{label:"Bluetooth",value:"5.1"},{label:"Power Bank",value:"Yes"},{label:"PartyBoost",value:"Yes"},{label:"Warranty",value:"1 Year"}],
+    images:["https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&q=80","https://images.unsplash.com/photo-1545454675-3531b543be5d?w=800&q=80","https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80"]},
+  { id:6, category:"audio", badge:null, name:"Sony WH-1000XM5 Headphones", desc:"Industry-leading noise cancelling with 30h battery, multipoint connect, and crystal-clear call quality.", price:"2,900",
+    specs:[{label:"Battery",value:"30 Hours"},{label:"ANC",value:"Active"},{label:"Bluetooth",value:"5.2"},{label:"Multipoint",value:"2 Devices"},{label:"Weight",value:"250g"},{label:"Warranty",value:"1 Year"}],
+    images:["https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80","https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=800&q=80","https://images.unsplash.com/photo-1508164451428-b68e3607fb5a?w=800&q=80"]},
+  { id:7, category:"accessory", badge:"sale", name:"HDMI 2.1 Cable 3m", desc:"8K certified HDMI 2.1 cable supporting 48Gbps bandwidth, 8K@60Hz & 4K@120Hz. Gold-plated connectors.", price:"150", oldPrice:"200",
+    specs:[{label:"Version",value:"HDMI 2.1"},{label:"Bandwidth",value:"48Gbps"},{label:"Max Res",value:"8K@60Hz"},{label:"Length",value:"3m"},{label:"Connectors",value:"Gold Plated"},{label:"HDR",value:"Dolby Vision"}],
+    images:["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80","https://images.unsplash.com/photo-1588590560438-5e27fe3f6b71?w=800&q=80"]},
+  { id:8, category:"accessory", badge:"new", name:"Universal TV Wall Mount", desc:"Heavy-duty full-motion articulating arm. Fits 32\"–75\" TVs, VESA up to 600×400mm, tilt & swivel.", price:"480",
+    specs:[{label:"TV Fit",value:'32"–75"'},{label:"VESA",value:"600×400mm"},{label:"Max Weight",value:"50kg"},{label:"Tilt",value:"±15°"},{label:"Swivel",value:"180°"},{label:"Warranty",value:"2 Years"}],
+    images:["https://images.unsplash.com/photo-1588590560438-5e27fe3f6b71?w=800&q=80","https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"]},
+  { id:9, category:"accessory", badge:null, name:"4-Port USB-C Hub", desc:"Compact USB-C hub with 4K HDMI, 100W PD passthrough, 2×USB-A 3.0, USB-C data. Plug and play.", price:"320",
+    specs:[{label:"Ports",value:"HDMI+2×USB-A+USB-C"},{label:"HDMI",value:"4K@30Hz"},{label:"PD",value:"100W"},{label:"USB-A",value:"5Gbps"},{label:"Cable",value:"12cm"},{label:"Compat.",value:"Mac/PC/iPad"}],
+    images:["https://images.unsplash.com/photo-1625799955928-fc2c59b0d86e?w=800&q=80","https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"]},
 ];
 
-/* ── STATE ── */
-let currentFilter = 'all';
-let currentSearch = '';
+let currentFilter = 'all', currentSearch = '';
 
-/* ── RENDER GRID ── */
 function renderGrid() {
   const grid = document.getElementById('all-products');
   const meta = document.getElementById('resultsMeta');
   const q = currentSearch.toLowerCase();
-
   const filtered = PRODUCTS.filter(p => {
-    const matchCat = currentFilter === 'all' || p.category === currentFilter;
-    const matchSearch = !q || p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
-    return matchCat && matchSearch;
+    return (currentFilter === 'all' || p.category === currentFilter) &&
+           (!q || p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
   });
-
   meta.innerHTML = `Showing <span>${filtered.length}</span> of <span>${PRODUCTS.length}</span> products`;
-
   if (!filtered.length) {
-    grid.innerHTML = `
-      <div class="empty-state">
-        <i class="fas fa-box-open"></i>
-        <h3>No products found</h3>
-        <p>Try a different keyword or category filter.</p>
-      </div>`;
+    grid.innerHTML = `<div class="empty-state"><div class="icon"><i class="fas fa-box-open"></i></div><h3>No products found</h3><p>Try a different keyword or category filter.</p></div>`;
     return;
   }
-
   grid.innerHTML = filtered.map((p, i) => `
-    <article class="product-card" style="animation-delay:${i * 0.05}s">
+    <article class="product-card" style="animation-delay:${i * .05}s">
       <div class="card-img-wrap">
-        <img src="${p.images[0]}" alt="${p.name}" id="card-img-${p.id}" loading="lazy">
+        <img src="${p.images[0]}" alt="${p.name}" id="cimg-${p.id}" loading="lazy">
         ${p.badge ? `<span class="badge badge-${p.badge}">${p.badge}</span>` : ''}
       </div>
-      ${p.images.length > 1 ? `
-      <div class="thumb-strip">
-        ${p.images.map((img, idx) => `
-          <img class="thumb${idx === 0 ? ' active' : ''}" src="${img}"
-            alt="View ${idx+1}" data-card="${p.id}" data-idx="${idx}">
-        `).join('')}
-      </div>` : ''}
+      ${p.images.length > 1 ? `<div class="thumb-strip">${p.images.map((img, idx) => `<img class="thumb${idx===0?' active':''}" src="${img}" alt="View ${idx+1}" data-card="${p.id}" data-idx="${idx}">`).join('')}</div>` : ''}
       <div class="card-body">
         <div class="card-category">${p.category.toUpperCase()}</div>
         <div class="card-name">${p.name}</div>
         <p class="card-desc">${p.desc}</p>
-        <div class="card-specs">
-          ${p.specs.slice(0,3).map(s=>`<span class="spec-tag">${s.value}</span>`).join('')}
-        </div>
+        <div class="card-specs">${p.specs.slice(0,3).map(s=>`<span class="spec-tag">${s.value}</span>`).join('')}</div>
       </div>
       <div class="card-footer">
         <div class="card-price">
-          ${p.oldPrice ? `<span class="old-price">${p.oldPrice}</span>` : ''}
-          <span class="currency">ZMW</span>${p.price.replace('K ','').replace('K','').trim()}
+          ${p.oldPrice ? `<div class="old">ZMW ${p.oldPrice}</div>` : ''}
+          <div class="main"><span class="cur">ZMW </span>${p.price}</div>
         </div>
         <div class="card-actions">
-          <button class="btn-see-more" data-id="${p.id}"><i class="fas fa-expand-alt"></i> See More</button>
-          <button class="btn-whatsapp" data-name="${p.name}"><i class="fab fa-whatsapp"></i></button>
+          <button class="btn-see-more" data-id="${p.id}"><i class="fas fa-expand-alt"></i> Details</button>
+          <button class="btn-enquire" data-name="${p.name}"><i class="fab fa-whatsapp"></i></button>
         </div>
       </div>
     </article>
   `).join('');
 
-  /* thumb click on card */
   document.querySelectorAll('.thumb').forEach(th => {
     th.addEventListener('click', () => {
-      const cardId = th.dataset.card;
-      const idx = parseInt(th.dataset.idx);
-      const p = PRODUCTS.find(x => x.id == cardId);
-      document.getElementById(`card-img-${cardId}`).src = p.images[idx];
-      document.querySelectorAll(`.thumb[data-card="${cardId}"]`).forEach(t => t.classList.remove('active'));
+      const id = th.dataset.card, idx = parseInt(th.dataset.idx);
+      document.getElementById(`cimg-${id}`).src = PRODUCTS.find(x=>x.id==id).images[idx];
+      document.querySelectorAll(`.thumb[data-card="${id}"]`).forEach(t=>t.classList.remove('active'));
       th.classList.add('active');
     });
   });
-
-  /* see more */
-  document.querySelectorAll('.btn-see-more').forEach(btn => {
-    btn.addEventListener('click', () => openModal(parseInt(btn.dataset.id)));
-  });
-
-  /* card whatsapp */
-  document.querySelectorAll('.btn-whatsapp').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const msg = encodeURIComponent(`Hi Muwowo Electronics! I'm interested in: ${btn.dataset.name}`);
-      window.open(`https://wa.me/260761616201?text=${msg}`, '_blank');
-    });
-  });
+  document.querySelectorAll('.btn-see-more').forEach(btn => btn.addEventListener('click', () => openModal(+btn.dataset.id)));
+  document.querySelectorAll('.btn-enquire').forEach(btn => btn.addEventListener('click', () => {
+    window.open(`https://wa.me/260761616201?text=${encodeURIComponent('Hi Muwowo Electronics! I\'m interested in: '+btn.dataset.name)}`, '_blank');
+  }));
 }
 
-/* ── MODAL ── */
 function openModal(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p) return;
-
   document.getElementById('modalCategory').textContent = p.category.toUpperCase();
   document.getElementById('modalName').textContent = p.name;
   document.getElementById('modalDesc').textContent = p.desc;
   document.getElementById('modalMainImg').src = p.images[0];
-  document.getElementById('modalMainImg').alt = p.name;
-
-  const priceEl = document.getElementById('modalPrice');
-  priceEl.innerHTML = (p.oldPrice ? `<span class="old">${p.oldPrice}</span>` : '') + p.price;
+  document.getElementById('modalPrice').textContent = `ZMW ${p.price}`;
+  document.getElementById('modalOldPrice').textContent = p.oldPrice ? `ZMW ${p.oldPrice}` : '';
 
   const thumbsEl = document.getElementById('modalThumbs');
   thumbsEl.innerHTML = p.images.map((img, idx) => `
-    <div class="modal-thumb${idx === 0 ? ' active' : ''}" data-idx="${idx}">
+    <div class="modal-thumb${idx===0?' active':''}" data-idx="${idx}">
       <img src="${img}" alt="View ${idx+1}">
-    </div>
-  `).join('');
-
+    </div>`).join('');
   thumbsEl.querySelectorAll('.modal-thumb').forEach(th => {
     th.addEventListener('click', () => {
-      document.getElementById('modalMainImg').src = p.images[parseInt(th.dataset.idx)];
-      thumbsEl.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+      document.getElementById('modalMainImg').src = p.images[+th.dataset.idx];
+      thumbsEl.querySelectorAll('.modal-thumb').forEach(t=>t.classList.remove('active'));
       th.classList.add('active');
     });
   });
 
-  const specsEl = document.getElementById('modalSpecs');
-  specsEl.innerHTML = p.specs.map(s => `
+  document.getElementById('modalSpecs').innerHTML = p.specs.map(s => `
     <div class="modal-spec-item">
       <div class="label">${s.label}</div>
       <div class="value">${s.value}</div>
-    </div>
-  `).join('');
+    </div>`).join('');
 
   document.getElementById('modalWaBtn').onclick = () => {
-    const msg = encodeURIComponent(`Hi Muwowo Electronics! I'm interested in: ${p.name} (${p.price})`);
-    window.open(`https://wa.me/260761616201?text=${msg}`, '_blank');
+    window.open(`https://wa.me/260761616201?text=${encodeURIComponent(`Hi Muwowo Electronics! I'm interested in: ${p.name} (ZMW ${p.price})`)}`, '_blank');
   };
 
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
-function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
+function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow = ''; }
 document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
-document.getElementById('modalOverlay').addEventListener('click', e => {
-  if (e.target === document.getElementById('modalOverlay')) closeModal();
-});
+document.getElementById('modalOverlay').addEventListener('click', e => { if (e.target === document.getElementById('modalOverlay')) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-/* ── FILTERS ── */
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -872,44 +717,24 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-/* ── SEARCH ── */
 let searchTimer;
 document.getElementById('searchInput').addEventListener('input', e => {
   clearTimeout(searchTimer);
-  searchTimer = setTimeout(() => {
-    currentSearch = e.target.value;
-    renderGrid();
-  }, 250);
+  searchTimer = setTimeout(() => { currentSearch = e.target.value; renderGrid(); }, 250);
 });
 
-/* ── MOBILE MENU ── */
-const hamburger = document.getElementById('hamburgerBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-const menuOverlay = document.getElementById('menuOverlay');
-const closeMenuBtn = document.getElementById('closeMenuBtn');
+/* mobile menu */
+const openMenu = () => { document.getElementById('mobileMenu').classList.add('open'); document.getElementById('menuOverlay').classList.add('open'); document.body.style.overflow='hidden'; };
+const closeMenu = () => { document.getElementById('mobileMenu').classList.remove('open'); document.getElementById('menuOverlay').classList.remove('open'); document.body.style.overflow=''; };
+document.getElementById('hamburgerBtn').addEventListener('click', openMenu);
+document.getElementById('closeMenuBtn').addEventListener('click', closeMenu);
+document.getElementById('menuOverlay').addEventListener('click', closeMenu);
 
-function openMenu() {
-  mobileMenu.classList.add('open');
-  menuOverlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeMenu() {
-  mobileMenu.classList.remove('open');
-  menuOverlay.classList.remove('open');
-  document.body.style.overflow = '';
-}
-hamburger.addEventListener('click', openMenu);
-closeMenuBtn.addEventListener('click', closeMenu);
-menuOverlay.addEventListener('click', closeMenu);
+/* scroll top */
+const scrollBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => scrollBtn.classList.toggle('visible', window.scrollY > 300));
+scrollBtn.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
 
-/* ── SCROLL TOP ── */
-const scrollTopBtn = document.getElementById('scrollTop');
-window.addEventListener('scroll', () => {
-  scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
-});
-scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-/* ── INIT ── */
 renderGrid();
 </script>
 </body>
